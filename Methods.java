@@ -1,6 +1,7 @@
 import java.io.FileNotFoundException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Arrays;
 import java.util.Scanner;
 import java.io.*;
 
@@ -16,9 +17,12 @@ public class Methods {
         }
     }
 
-    public boolean addToDoc(String fileNameWithTxt, String stringGoingToAddedToDoc) {
-        PrintWriter xWriter = null;
 
+
+    public boolean addToDoc(String fileNameWithTxt, String stringGoingToAddedToDoc) {
+
+        PrintWriter xWriter = null;
+        boolean result = true;
         try {
             xWriter = new PrintWriter(fileNameWithTxt);
             xWriter.print(stringGoingToAddedToDoc + "\r\n");
@@ -46,7 +50,19 @@ public class Methods {
     }
 
     //finds the amount of lines in a file
+    public int rollTen(int pity, int pity2) {
+        int rolls[];
+        int rollNum;
+        for (int i = 0; i < 10; i++) {
+            if (pity < 75) {
+                rollNum = (int) ((double) Math.random() * 101);
 
+            }
+        }
+        return 10;
+    }
+
+    //ten roll - not finished yet
     public String[] saveData(int lineAmount, String fileNameWithTxt) throws FileNotFoundException {
 
 
@@ -63,7 +79,7 @@ public class Methods {
     }
     //saves everything in the file as a string array
 
-    public void makeFile(String fileNameWithTxt) {
+    public void makeFile (String fileNameWithTxt) {
         File newUserFile = new File(fileNameWithTxt);
 
 
@@ -78,11 +94,13 @@ public class Methods {
                 FileWriter newUserFileWriter = new FileWriter(fileNameWithTxt);
                 newUserFileWriter.write("userpass: " + fileNameWithTxt);
             }
-        } catch (IOException e) {
+        }   catch (IOException e) {
             System.out.println("IOException");
         }
 
     }
+    //makes file once given file name
+
     public String userpassFile (String user, String pass) {
 
         return user + pass + ".txt";
@@ -90,5 +108,4 @@ public class Methods {
 
 
 }
-
 

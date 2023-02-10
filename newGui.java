@@ -121,6 +121,8 @@ public class newGui {
                 bought0.setText(""+ buildingsBought[0]);
 
                 cpsAmount+=1;
+                buildingPrice[0]= buildingPrice[0] * 23/20;
+                cost0.setText(buildingPrice[0] + "");
             }
             cookieAmountDisplay.setText("Cookie Amount: " + cookieAmount);
             cpsDisplay.setText("CPS: " + cpsAmount);
@@ -136,6 +138,8 @@ public class newGui {
                 bought1.setText("" + buildingsBought[1]);
 
                 cpsAmount+=10;
+                buildingPrice[1]= buildingPrice[1] * 23/20;
+                cost1.setText(buildingPrice[1] + "");
             }
             cookieAmountDisplay.setText("Cookie Amount: " + cookieAmount);
             cpsDisplay.setText("CPS: " + cpsAmount);
@@ -151,6 +155,8 @@ public class newGui {
                 bought2.setText("" + buildingsBought[2]);
 
                 cpsAmount+=100;
+                buildingPrice[2]= buildingPrice[2] * 23/20;
+                cost2.setText(buildingPrice[2] + "");
             }
             cookieAmountDisplay.setText("Cookie Amount: " + cookieAmount);
             cpsDisplay.setText("CPS: " + cpsAmount);
@@ -166,6 +172,8 @@ public class newGui {
                 bought3.setText("" + buildingsBought[3]);
 
                 cpsAmount+=1000;
+                buildingPrice[3]= buildingPrice[3] * 23/20;
+                cost3.setText(buildingPrice[3] + "");
             }
             cookieAmountDisplay.setText("Cookie Amount: " + cookieAmount);
             cpsDisplay.setText("CPS: " + cpsAmount);
@@ -180,6 +188,8 @@ public class newGui {
                 buildingsBought[4]+=1;
 
                 cpsAmount+=10000;
+                buildingPrice[4]= buildingPrice[4] * 23/20;
+                cost4.setText(buildingPrice[4] + "");
             }
         }else if (building4.getText() == "Building 4 ") {
             if (cookieAmount>= buildingPrice[4]*10) {
@@ -190,6 +200,8 @@ public class newGui {
 
 
                 cpsAmount+=10000*10;
+                buildingPrice[4]= buildingPrice[4] * 23/20;
+                cost4.setText(buildingPrice[4] + "");
             }
         }
             bought4.setText("" + buildingsBought[4]);
@@ -206,6 +218,8 @@ public class newGui {
                 bought5.setText("" + buildingsBought[5]);
 
                 cpsAmount+=100000;
+                buildingPrice[5]= buildingPrice[5] * 23/20;
+                cost5.setText(buildingPrice[5] + "");
             }
             cookieAmountDisplay.setText("Cookie Amount: " + cookieAmount);
             cpsDisplay.setText("CPS: " + cpsAmount);
