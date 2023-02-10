@@ -9,7 +9,7 @@ public class otuCookieAmountDisplay extends JLabel {
         this.setBounds(115,185, 270, 70);
         this.setOpaque(true);
         this.setBackground(Color.ORANGE);
-        this.setFont(new Font("Serif", Font.PLAIN, 20));
+        this.setFont(new Font("Serif", Font.PLAIN, 11));
     }
 
     public void buttonpressed (AtomicInteger[] cookieAmount) {
