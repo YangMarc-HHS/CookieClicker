@@ -14,9 +14,11 @@ public class CircleButton extends JButton{
 
     public CircleButton(String text){
         super(text);
-        setOpaque(false);
-        setFocusPainted(false);
+        setBorder(null);
         setBorderPainted(false);
+        setContentAreaFilled(false);
+        setOpaque(false);
+
 
         MouseAdapter mouseListener = new MouseAdapter(){
 

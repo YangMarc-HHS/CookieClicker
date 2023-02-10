@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class buildingPanel  extends JPanel {
-    public buildingPanel (buildingButton button, JLabel buildingAmount, JLabel buildingCost) {
+    public buildingPanel (mtuBuildingButton button, JLabel buildingAmount, JLabel buildingCost) {
 
         this.add(button);
         this.add(buildingAmount);

@@ -1,8 +1,8 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class UsernameDisplay extends JLabel {
-    public UsernameDisplay() {
+public class otuUsernameDisplay extends JLabel {
+    public otuUsernameDisplay() {
 
 
         this.setText("Username");

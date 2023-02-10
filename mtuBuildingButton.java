@@ -1,8 +1,8 @@
 import java.awt.*;
 import javax.swing.JButton;
 
-public class buildingButton extends JButton{
-    public buildingButton(String text, int x, int y ,int width, int height){
+public class mtuBuildingButton extends JButton{
+    public mtuBuildingButton(String text, int x, int y , int width, int height){
         super(text);
         setFont(new Font("Serif", Font.PLAIN, 23));
         this.setBounds(x,y,width,height);
