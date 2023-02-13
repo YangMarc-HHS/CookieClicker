@@ -1,7 +1,6 @@
 import java.io.FileNotFoundException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.Arrays;
 import java.util.Scanner;
 import java.io.*;
 
@@ -10,7 +9,7 @@ public class Methods {
     public boolean newFindUser(String userpass) {
         userpass = userpass.replaceAll("//s+", "");
         try {
-            return Files.readAllLines(Path.of("LoginDetails.txt")).contains(userpass);
+            return Files.readAllLines(Path.of("txtFiles/LoginDetails.txt")).contains(userpass);
         } catch (IOException e) {
             System.out.println("IOException");
             return false;
@@ -104,6 +103,17 @@ public class Methods {
     public String userpassFile (String user, String pass) {
 
         return user + pass + ".txt";
+    }
+
+
+    public void exportCookieAmount (String fileName, int importedCookieAmount) {
+        try {
+            PrintWriter writer = new PrintWriter(new BufferedWriter(new FileWriter(fileName)));
+        }catch (IOException e ) {
+            System.out.println("xd");
+        }
+
+
     }
 
 

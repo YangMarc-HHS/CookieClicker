@@ -1,41 +1,61 @@
+import TimeUse.*;
+
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.util.concurrent.atomic.AtomicInteger;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.net.URL;
 import java.util.*;
 import java.awt.event.*;
-import javax.swing.*;
 import java.util.Scanner;
 
-public class newGui {
+public class clickerGui extends JFrame{
     private int cookieAmount = 0;
     private int buildingsBought[];
     private int buildingPrice[];
     private int cpsAmount;
-    public newGui () {
-        //final long[] cookieAmount = {0};
+    private BufferedImage iconX;
 
-        //final AtomicInteger[] cookieAmount = {new AtomicInteger()};
-        //final AtomicInteger[] buildingsBought = {new AtomicInteger()};
-        //final AtomicInteger[] buildingPrice1 = {new AtomicInteger()};
-        //final AtomicInteger[] buildingPrice2 = {new AtomicInteger()};
-        //final AtomicInteger[] buildingPrice3 = {new AtomicInteger()};
-        //final AtomicInteger[] buildingPrice4 = {new AtomicInteger()};
-        //final AtomicInteger[] buildingPrice5 = {new AtomicInteger()};
-        //final AtomicInteger[] buildingPrice6 = {new AtomicInteger()};
-        //final AtomicInteger[] cpsAmount = {new AtomicInteger()};
+    public clickerGui(int importedCookieAmount, int[] importedBuildingsBought) {
+
+        try {
+            URL imgUrl = getClass().getResource("cookieicon.png");
+            Image img = ImageIO.read(imgUrl);
+            this.setIconImage(img);
+        }catch (IOException e) {
+            System.out.print("Icon Error");
+        }
+
 
         buildingPrice = new int[6];
-        buildingsBought = new int[6];
-        for (int i = 0; i < 5; i++) {
-            buildingsBought[i] = 0;
+
+        cookieAmount = importedCookieAmount;
+        buildingsBought = importedBuildingsBought;
+
+
+        for (int i = 0; i<6; i++) {
+            int test = (int) ((10.0+i)*Math.pow(10.0,i));
+            test = (int) (test*Math.pow(1.15,buildingsBought[i]));
+            buildingPrice[i] = test;
         }
-        int cookieAmountX = 0;
-        buildingPrice[0] = 10;
-        buildingPrice[1] = 110;
-        buildingPrice[2] = 1200;
-        buildingPrice[3] = 13000;
-        buildingPrice[4] = 140000;
-        buildingPrice[5] = 1500000;
+
+        for (int i = 0; i<6; i++) {
+            cpsAmount+= buildingsBought[i]*Math.pow(10,i+1);
+        }
+
+//
+//        buildingsBought = new int[6];
+//        for (int i = 0; i < 5; i++) {
+//            buildingsBought[i] = 0;
+//        }
+//        int cookieAmountX = 0;
+//        buildingPrice[0] = 10;
+//        buildingPrice[1] = 110;
+//        buildingPrice[2] = 1200;
+//        buildingPrice[3] = 13000;
+//        buildingPrice[4] = 140000;
+//        buildingPrice[5] = 1500000;
 
 
 
@@ -55,19 +75,19 @@ public class newGui {
         mtuBuildingButton building4 = new mtuBuildingButton("Building 4", 700,500,300,75);
         mtuBuildingButton building5 = new mtuBuildingButton("Building 5", 700,600,300,75);
 
-        mtuBuildingBought bought0 = new mtuBuildingBought("0",1050,100,100,75);
-        mtuBuildingBought bought1 = new mtuBuildingBought("0",1050,200,100,75);
-        mtuBuildingBought bought2 = new mtuBuildingBought("0",1050,300,100,75);
-        mtuBuildingBought bought3 = new mtuBuildingBought("0",1050,400,100,75);
-        mtuBuildingBought bought4 = new mtuBuildingBought("0",1050,500,100,75);
-        mtuBuildingBought bought5 = new mtuBuildingBought("0",1050,600,100,75);
+        mtuBuildingBought bought0 = new mtuBuildingBought(buildingsBought[0] + "",1050,100,100,75);
+        mtuBuildingBought bought1 = new mtuBuildingBought(buildingsBought[1] + "",1050,200,100,75);
+        mtuBuildingBought bought2 = new mtuBuildingBought(buildingsBought[2] + "",1050,300,100,75);
+        mtuBuildingBought bought3 = new mtuBuildingBought(buildingsBought[3] + "",1050,400,100,75);
+        mtuBuildingBought bought4 = new mtuBuildingBought(buildingsBought[4] + "",1050,500,100,75);
+        mtuBuildingBought bought5 = new mtuBuildingBought(buildingsBought[5] + "",1050,600,100,75);
 
-        mtuBuildingCost cost0 = new mtuBuildingCost("10", 700,175,300,20);
-        mtuBuildingCost cost1 = new mtuBuildingCost("110", 700,275,300,20);
-        mtuBuildingCost cost2 = new mtuBuildingCost("1200", 700,375,300,20);
-        mtuBuildingCost cost3 = new mtuBuildingCost("13000", 700,475,300,20);
-        mtuBuildingCost cost4 = new mtuBuildingCost("140000", 700,575,300,20);
-        mtuBuildingCost cost5 = new mtuBuildingCost("1500000", 700,675,300,20);
+        mtuBuildingCost cost0 = new mtuBuildingCost(buildingPrice[0] + "", 700,175,300,20);
+        mtuBuildingCost cost1 = new mtuBuildingCost(buildingPrice[1] + "", 700,275,300,20);
+        mtuBuildingCost cost2 = new mtuBuildingCost(buildingPrice[2] + "", 700,375,300,20);
+        mtuBuildingCost cost3 = new mtuBuildingCost(buildingPrice[3] + "", 700,475,300,20);
+        mtuBuildingCost cost4 = new mtuBuildingCost(buildingPrice[4] + "", 700,575,300,20);
+        mtuBuildingCost cost5 = new mtuBuildingCost(buildingPrice[5] + "", 700,675,300,20);
 
 
 
@@ -80,17 +100,21 @@ public class newGui {
         });
 
 
-        java.util.Timer autoRunner = new java.util.Timer();
-        autoRunner.scheduleAtFixedRate(new TimerTask() {
-            public void run() {
+            java.util.Timer autoRunner = new java.util.Timer();
+            autoRunner.scheduleAtFixedRate(new TimerTask() {
+                public void run() {
+                    cpsAmount = 0;
+                    for (int i = 0; i<6; i++) {
 
-                cookieAmount = cookieAmount + cpsAmount;
+                        cpsAmount+= buildingsBought[i]*Math.pow(10,i+1);
+                    }
 
-                cpsDisplay.setText("CPS: " + cpsAmount);
-                cookieAmountDisplay.setText("Cookie Amount: " + cookieAmount);
-        }
-}, 0, 2000);
+                    cookieAmount = cookieAmount + cpsAmount;
 
+                    cpsDisplay.setText("CPS: " + cpsAmount);
+                    cookieAmountDisplay.setText("Cookie Amount: " + cookieAmount);
+                }
+            }, 0, 2000);
 
 
 
@@ -101,12 +125,11 @@ public class newGui {
         cookieImage.addActionListener(new ActionListener(){
 
             public void actionPerformed(ActionEvent e) {
-                cookieAmount+=1;
+
+                cookieAmount+=cpsAmount/10;
                 cookieAmountDisplay.setText("Cookie Amount: " + cookieAmount);
             }
 
-
-            //cookieAmountX =  cookieAmount[0].get();
         });
 
 
@@ -228,41 +251,43 @@ public class newGui {
 
 
 
-        JFrame frame = new JFrame();
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setLayout(null);
-        frame.setBounds(190,60,1200,850);
-        frame.setVisible(true);
-        frame.add(cookieImage);
+        //JFrame frame = new JFrame();
 
-        frame.add(building0);
-        frame.add(building1);
-        frame.add(building2);
-        frame.add(building3);
-        frame.add(building4);
-        frame.add(building5);
+       // this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+        this.setLayout(null);
+        this.setBounds(190,60,1200,850);
+        this.setVisible(true);
+        this.add(cookieImage);
 
-        frame.add(bought0);
-        frame.add(bought1);
-        frame.add(bought2);
-        frame.add(bought3);
-        frame.add(bought4);
-        frame.add(bought5);
-
-        frame.add(cost0);
-        frame.add(cost1);
-        frame.add(cost2);
-        frame.add(cost3);
-        frame.add(cost4);
-        frame.add(cost5);
+        this.add(building0);
+        this.add(building1);
+        this.add(building2);
+        this.add(building3);
+        this.add(building4);
+        this.add(building5);
 
 
+        this.add(bought0);
+        this.add(bought1);
+        this.add(bought2);
+        this.add(bought3);
+        this.add(bought4);
+        this.add(bought5);
 
-        frame.add(usernameDisplay);
-        frame.add(cookieAmountDisplay);
-        frame.add(cpsDisplay);
-        frame.add(x10);
+        this.add(cost0);
+        this.add(cost1);
+        this.add(cost2);
+        this.add(cost3);
+        this.add(cost4);
+        this.add(cost5);
+
+
+
+        this.add(usernameDisplay);
+        this.add(cookieAmountDisplay);
+        this.add(cpsDisplay);
+        this.add(x10);
 
 
         String hi;
@@ -271,9 +296,13 @@ public class newGui {
             hi = hello.next();
 
             switch (hi) {
-                case "addMoney":
-                    cookieAmount = 999999999;
+                case "cpsOff":
+                    autoRunner.cancel();
+                case "1+0":
+                    buildingsBought[0]=+1;
                     break;
+                case "100+0":
+
                 case "details":
                     System.out.print(Arrays.toString(buildingsBought));
                     break;
@@ -291,4 +320,23 @@ public class newGui {
 
 
     }
+
+    public int getCookieBalance() {
+        return cookieAmount;
+
+    }
+
+    public int[] getBuildingsBought() {
+        return buildingsBought;
+
+    }
+
+    public int[] getBuildingPrice() {
+        return buildingPrice;
+    }
+
+    public int getCpsAmount() {
+        return cpsAmount;
+    }
+
 }

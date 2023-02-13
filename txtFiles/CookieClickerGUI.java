@@ -12,8 +12,8 @@
 //
 //        final AtomicInteger[] buildingsBought = {new AtomicInteger()};
 //
-//        otuUsernameDisplay usernameDisplay = new otuUsernameDisplay();
-//        otuCookieAmountDisplay cookieAmountDisplay = new otuCookieAmountDisplay(cookieAmount);
+//        TimeUse.otuUsernameDisplay usernameDisplay = new TimeUse.otuUsernameDisplay();
+//        TimeUse.otuCookieAmountDisplay cookieAmountDisplay = new TimeUse.otuCookieAmountDisplay(cookieAmount);
 //
 //        JLabel cpsDisplay = new JLabel();
 //        cpsDisplay.setText("cps: 0");
@@ -22,7 +22,7 @@
 //        cpsDisplay.setBackground(Color.ORANGE);
 //        cpsDisplay.setFont(new Font("Serif", Font.PLAIN, 14));
 //
-//        CircleButton cookieImage = new CircleButton("Insert Cookie Image");
+//        TimeUse.CircleButton cookieImage = new TimeUse.CircleButton("Insert Cookie Image");
 //        cookieImage.setBounds(80, 325, 350,350);
 //        cookieImage.setFont(new Font("Serif", Font.PLAIN, 30));
 //
@@ -31,12 +31,12 @@
 //            cookieAmountDisplay.setText("Cookie Amount: " + cookieAmount[0]);
 //        });
 //
-//        mtuBuildingButton building1 = new mtuBuildingButton("Building 1", 700,100,300,75);
-//        mtuBuildingButton building2 = new mtuBuildingButton("Building 2", 700,200,300,75);
-//        mtuBuildingButton building3 = new mtuBuildingButton("Building 3", 700,300,300,75);
-//        mtuBuildingButton building4 = new mtuBuildingButton("Building 4", 700,400,300,75);
-//        mtuBuildingButton building5 = new mtuBuildingButton("Building 5", 700,500,300,75);
-//        mtuBuildingButton building6 = new mtuBuildingButton("Building 6", 700,600,300,75);
+//        TimeUse.mtuBuildingButton building1 = new TimeUse.mtuBuildingButton("Building 1", 700,100,300,75);
+//        TimeUse.mtuBuildingButton building2 = new TimeUse.mtuBuildingButton("Building 2", 700,200,300,75);
+//        TimeUse.mtuBuildingButton building3 = new TimeUse.mtuBuildingButton("Building 3", 700,300,300,75);
+//        TimeUse.mtuBuildingButton building4 = new TimeUse.mtuBuildingButton("Building 4", 700,400,300,75);
+//        TimeUse.mtuBuildingButton building5 = new TimeUse.mtuBuildingButton("Building 5", 700,500,300,75);
+//        TimeUse.mtuBuildingButton building6 = new TimeUse.mtuBuildingButton("Building 6", 700,600,300,75);
 //
 //        JLabel buildingAmount1 = new JLabel("0", SwingConstants.CENTER);
 //        JLabel buildingAmount2 = new JLabel("0", SwingConstants.CENTER);

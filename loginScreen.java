@@ -1,27 +1,22 @@
 import javax.swing.*;
-import java.awt.*;
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.*;
-import java.awt.event.*;
-import javax.swing.*;
-import java.util.Scanner;
 import java.io.*;
 import java.util.Arrays;
-import java.util.Scanner;
 import java.io.IOException;
 
 public class loginScreen extends JFrame{
 	String username = "";
 	String password = "";  
-	File file = new File("LoginDetails.txt");
+	File file = new File("txtFiles/LoginDetails.txt");
     Methods method = new Methods();
     String loginChoice;
     String userpass;
-    String userpassFile;
+    static String userpassFile;
     int lineAmountLD;
     File userFile;
     String[] fileInfo = {"a", "b"};
     int numOfLines;
+
+	int cookieBalance;
 
 
 	
@@ -39,10 +34,10 @@ public class loginScreen extends JFrame{
 	    }
 	    
 	    try {
-            numOfLines = method.findAmountOfLines("LoginDetails.txt");
+            numOfLines = method.findAmountOfLines("txtFiles/LoginDetails.txt");
             //finds number of lines in Logindetails
 
-            String[] importedData = method.saveData(numOfLines, "LoginDetails.txt");
+            String[] importedData = method.saveData(numOfLines, "txtFiles/LoginDetails.txt");
             //saves all lines in logindetails
 
             System.out.println(Arrays.toString(importedData));
@@ -82,6 +77,16 @@ public class loginScreen extends JFrame{
 		newAccountButton.setBounds(200,250,200,25);
 		newAccountButton.setVisible(true);
 		newAccountButton.setText("New Account");
+
+		JLabel problems = new JLabel();
+		problems.setBounds(100,300 ,400,25);
+		problems.setVisible(true);
+		problems.setText("");
+		problems.setVerticalTextPosition(SwingConstants.CENTER);
+		problems.setHorizontalTextPosition(SwingConstants.CENTER);
+		problems.setHorizontalAlignment(SwingConstants.CENTER);
+		problems.setVerticalAlignment(SwingConstants.CENTER);
+
 		
 		newAccountButton.addActionListener(e -> {
 
@@ -99,24 +104,21 @@ public class loginScreen extends JFrame{
             userpassFile = userpass + ".txt";
 
             try {
-                FileWriter myWriter = new FileWriter("LoginDetails.txt", true);
+                FileWriter myWriter = new FileWriter("txtFiles/LoginDetails.txt", true);
                 myWriter.close();
 
 
             } catch (IOException ecd) {
                 System.out.println("IOException");
             }
-            method.addToDoc("LoginDetails.txt", userpass);
+            method.addToDoc("txtFiles/LoginDetails.txt", userpass);
 
             method.addToDoc(userpassFile, "userpass: " + userpass);
-			System.out.println("account made");
+			problems.setText("Account Made");
+
 			
 		});
-		
-		JLabel problems = new JLabel();
-		problems.setBounds(250,300 ,100,25);
-		problems.setVisible(true);
-		problems.setText("");
+
 		
 		loginButton.addActionListener(e -> {
 			
@@ -134,7 +136,7 @@ public class loginScreen extends JFrame{
 
 
         userFile = new File(userpassFile);
-        System.out.println("Account Found: " + method.newFindUser(userpass));
+        problems.setText("Account Found: " + method.newFindUser(userpass));
 
 
         try {
@@ -174,4 +176,9 @@ public class loginScreen extends JFrame{
 
 	        
 	}
+
+	public static String getFileName() {
+		return userpassFile;
+	}
+
 }

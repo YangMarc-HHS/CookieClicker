@@ -1,3 +1,5 @@
+package TimeUse;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.concurrent.atomic.AtomicInteger;
