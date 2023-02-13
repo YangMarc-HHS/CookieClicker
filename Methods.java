@@ -7,7 +7,13 @@ import java.io.*;
 
 public class Methods {
     public boolean newFindUser(String userpass) {
-        userpass = userpass.replaceAll("//s+", "");
+    	try {
+    		userpass = userpass.replaceAll("//s+", "");
+    	}catch (NullPointerException e) {
+    		
+    	}
+        
+        
         try {
             return Files.readAllLines(Path.of("txtFiles/LoginDetails.txt")).contains(userpass);
         } catch (IOException e) {

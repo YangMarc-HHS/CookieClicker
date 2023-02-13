@@ -1,41 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import java.awt.*;
 import java.awt.event.*;
 
@@ -50,16 +12,38 @@ public class Main {
     public static int[] importedBuildingsBought;
 
     public static String userpassFile;
+    
+    static clickerGui frame;
 
 
     public static void main (String[]args) {
+        Methods ms = new Methods();
 
 
         loginScreen login = new loginScreen(true);
-        Methods ms = new Methods();
+        
+        String userpass = login.getFileName();
+        boolean userFound = ms.newFindUser(userpassFile);
+        
+        	while (!userFound) {
+        		userFound = ms.newFindUser(userpassFile);
+        		
+        	}
 
-        int[] a = {0, 1, 2, 3, 4, 5};
-        clickerGui frame = new clickerGui(1,a);
+        login.setVisible(false);
+        
+        login.addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent e) {
+            	System.out.print("e");
+            	int[] a = {0,1,2,3,4,5};
+            	frame = new clickerGui(1,a);
+            }
+        });
+        	
+
+        
+
+        
         frame.addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent e) {
                 importedCookieAmount = frame.getCpsAmount();
@@ -69,7 +53,8 @@ public class Main {
                 //ms.addToDoc(userpassFile,"" + importedCookieAmount);
             }
         });
-
+        	
+        
 
 
 

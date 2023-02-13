@@ -9,7 +9,7 @@ public class loginScreen extends JFrame{
 	File file = new File("txtFiles/LoginDetails.txt");
     Methods method = new Methods();
     String loginChoice;
-    String userpass;
+    static String userpass;
     static String userpassFile;
     int lineAmountLD;
     File userFile;
@@ -137,7 +137,11 @@ public class loginScreen extends JFrame{
 
         userFile = new File(userpassFile);
         problems.setText("Account Found: " + method.newFindUser(userpass));
-
+        if (method.newFindUser(userpass)) {
+        	dispose();
+        }
+        
+        
 
         try {
             lineAmountLD = method.findAmountOfLines(userpassFile);
@@ -178,7 +182,7 @@ public class loginScreen extends JFrame{
 	}
 
 	public static String getFileName() {
-		return userpassFile;
+		return userpass;
 	}
 
 }
