@@ -1,11 +1,52 @@
 import java.io.FileNotFoundException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Scanner;
 import java.io.*;
 
 
 public class Methods {
+	
+	public String getCookieAmountFromFile (String userpass) {
+		String cookieAmount = "";
+		
+		try {
+    		userpass = userpass.replaceAll("//s+", "");
+            cookieAmount = Files.readAllLines(Paths.get("file.txt")).get(1);
+    	}catch (NullPointerException e) {
+    		e.printStackTrace();
+    	}catch (IOException e) {
+           e.printStackTrace();
+
+        }
+		
+		return cookieAmount;
+        
+	}
+	
+	public String[] getBuildingsBoughtFromFile (String userpass) {
+		String[] buildingsBought = null;
+		
+		
+		try {
+    		userpass = userpass.replaceAll("//s+", "");
+    		for (int i = 0; i<6;i++) {
+    			buildingsBought[i]=Files.readAllLines(Paths.get("file.txt")).get(i+2);
+    		}
+    		
+    	}catch (NullPointerException e) {
+    		e.printStackTrace();
+    	}catch (IOException e) {
+           e.printStackTrace();
+
+        }
+		
+		return buildingsBought;
+        
+	}
+	
+	
     public boolean newFindUser(String userpass) {
     	try {
     		userpass = userpass.replaceAll("//s+", "");

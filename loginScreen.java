@@ -16,7 +16,11 @@ public class loginScreen extends JFrame{
     String[] fileInfo = {"a", "b"};
     int numOfLines;
 
-	int cookieBalance;
+
+    private int cookieAmount = 0;
+    private int buildingsBought[];
+//    private int buildingPrice[];
+//    private int cpsAmount;
 
 
 	
@@ -138,6 +142,13 @@ public class loginScreen extends JFrame{
         userFile = new File(userpassFile);
         problems.setText("Account Found: " + method.newFindUser(userpass));
         if (method.newFindUser(userpass)) {
+        	
+        	cookieAmount = Integer.parseInt(method.getCookieAmountFromFile(userpass));
+        	String[] temp = method.getBuildingsBoughtFromFile(userpass);
+        	for (int i = 0; i<6; i++ ) {
+        		buildingsBought[i] = Integer.parseInt(temp[i]);
+        	}
+        	
         	dispose();
         }
         
@@ -184,5 +195,17 @@ public class loginScreen extends JFrame{
 	public static String getFileName() {
 		return userpass;
 	}
+	
+	public int getCookieBalance() {
+        return cookieAmount;
+
+    }
+
+    public int[] getBuildingsBought() {
+        return buildingsBought;
+
+    }
+
+
 
 }
