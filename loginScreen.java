@@ -17,10 +17,9 @@ public class loginScreen extends JFrame{
     int numOfLines;
 
 
-    private int cookieAmount = 0;
-    private int buildingsBought[];
-//    private int buildingPrice[];
-//    private int cpsAmount;
+    private static int cookieAmount = 0;
+    private static int buildingsBought[];
+
 
 
 	
@@ -196,12 +195,12 @@ public class loginScreen extends JFrame{
 		return userpass;
 	}
 	
-	public int getCookieBalance() {
+	public static int getCookieBalance() {
         return cookieAmount;
 
     }
 
-    public int[] getBuildingsBought() {
+    public static int[] getBuildingsBought() {
         return buildingsBought;
 
     }

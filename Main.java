@@ -19,8 +19,8 @@ public class Main {
     public static void main (String[]args) {
         Methods ms = new Methods();
 
-
-        loginScreen login = new loginScreen(true);
+        /*
+       loginScreen login = new loginScreen(true);
         
         String userpass = login.getFileName();
         boolean userFound = ms.newFindUser(userpassFile);
@@ -39,10 +39,11 @@ public class Main {
             	frame = new clickerGui(1,a);
             }
         });
-        	
+        	*/
 
         
-
+        int[] a = {0,1,2,3,4,5};
+    	frame = new clickerGui(1,a);
         
         frame.addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent e) {
@@ -55,7 +56,8 @@ public class Main {
         });
         	
         
-
+        System.out.println(loginScreen.getBuildingsBought());
+        System.out.println(loginScreen.getCookieBalance());
 
 
 
