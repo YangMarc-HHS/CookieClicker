@@ -140,15 +140,20 @@ public class loginScreen extends JFrame{
 
         userFile = new File(userpassFile);
         problems.setText("Account Found: " + method.newFindUser(userpass));
+
         if (method.newFindUser(userpass)) {
         	
-        	cookieAmount = Integer.parseInt(method.getCookieAmountFromFile(userpass));
-        	String[] temp = method.getBuildingsBoughtFromFile(userpass);
-        	for (int i = 0; i<6; i++ ) {
-        		buildingsBought[i] = Integer.parseInt(temp[i]);
-        	}
-        	
-        	dispose();
+//
+//        	String[] temp = method.getBuildingsBoughtFromFile(userpass);
+//        	for (int i = 0; i<6; i++ ) {
+//        		buildingsBought[i] = Integer.parseInt(temp[i]);
+//        	}
+			try {
+				dispose();
+			} catch(Exception exx) {
+
+			}
+
         }
         
         

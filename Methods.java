@@ -163,6 +163,22 @@ public class Methods {
 
     }
 
+    public int[] getIntData(int lineAmount, String fileNameWithTxt) throws FileNotFoundException {
+
+
+        File file = new File(fileNameWithTxt);
+        //lineAmount = lineAmount - 1;
+        String lineInfo = ".";
+        int[] exportedData = new int[lineAmount];
+        Scanner lineReader = new Scanner(file);
+        for (int i = 0; i < lineAmount; i++) {
+            lineInfo = lineReader.nextLine();
+            exportedData[i] = Integer.parseInt(lineInfo);
+        }
+        return exportedData;
+    }
+    //sa
+
 
 }
 
